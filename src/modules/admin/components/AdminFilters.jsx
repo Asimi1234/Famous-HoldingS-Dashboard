@@ -39,14 +39,14 @@ const AdminFilters = ({
   ];
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+    <div className="bg-white rounded-lg border border-gray-200 p-3 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
         {/* Search */}
         <div className="md:col-span-4">
           <SearchInput
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Search"
+            placeholder="Text"
           />
         </div>
 

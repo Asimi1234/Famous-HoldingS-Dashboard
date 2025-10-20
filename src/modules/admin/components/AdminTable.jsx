@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import { Eye, Edit, Trash2, UserCheck, UserX } from 'lucide-react';
-import Avatar from '../../../components/ui/Avatar';
-import Badge from '../../../components/ui/Badge';
-import Dropdown from '../../../components/ui/Dropdown';
-import Pagination from '../../../components/common/Pagination';
-import { formatDate, formatPhoneNumber } from '../../../utils/formatters';
-import { updateAdmin, deleteAdmin } from '../../../data';
-import { STATUS } from '../../../utils/constants';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { Eye, Edit, Trash2, UserCheck, UserX } from "lucide-react";
+import Avatar from "../../../components/ui/Avatar";
+import Badge from "../../../components/ui/Badge";
+import Dropdown from "../../../components/ui/Dropdown";
+import Pagination from "../../../components/common/Pagination";
+import { formatDate, formatPhoneNumber } from "../../../utils/formatters";
+import { updateAdmin, deleteAdmin } from "../../../data";
+import { STATUS } from "../../../utils/constants";
 
 const AdminTable = ({ admins, onDataChange }) => {
   const navigate = useNavigate();
@@ -37,18 +37,19 @@ const AdminTable = ({ admins, onDataChange }) => {
   };
 
   const handleToggleStatus = (admin) => {
-    const newStatus = admin.status === STATUS.ACTIVE ? STATUS.DEACTIVATED : STATUS.ACTIVE;
+    const newStatus =
+      admin.status === STATUS.ACTIVE ? STATUS.DEACTIVATED : STATUS.ACTIVE;
     updateAdmin(admin.id, { status: newStatus });
-    
+
     if (onDataChange) {
       onDataChange();
     }
-    
+
     window.location.reload();
   };
 
   const handleDelete = (adminId) => {
-    if (window.confirm('Are you sure you want to delete this admin?')) {
+    if (window.confirm("Are you sure you want to delete this admin?")) {
       deleteAdmin(adminId);
       window.location.reload();
     }
@@ -56,28 +57,34 @@ const AdminTable = ({ admins, onDataChange }) => {
 
   const getDropdownItems = (admin) => [
     {
-      label: 'View Details',
+      label: "View Details",
       icon: <Eye className="w-4 h-4" />,
       onClick: () => navigate(`/employees/admin/${admin.id}`),
     },
     {
-      label: 'Edit',
+      label: "Edit",
       icon: <Edit className="w-4 h-4" />,
       onClick: () => navigate(`/employees/admin/edit/${admin.id}`),
     },
     {
-      label: admin.status === STATUS.ACTIVE ? 'Deactivate' : 'Activate',
-      icon: admin.status === STATUS.ACTIVE ? 
-        <UserX className="w-4 h-4" /> : 
-        <UserCheck className="w-4 h-4" />,
+      label: admin.status === STATUS.ACTIVE ? "Deactivate" : "Activate",
+      icon:
+        admin.status === STATUS.ACTIVE ? (
+          <UserX className="w-4 h-4" />
+        ) : (
+          <UserCheck className="w-4 h-4" />
+        ),
       onClick: () => handleToggleStatus(admin),
-      className: admin.status === STATUS.ACTIVE ? 'text-orange-600 hover:bg-orange-50' : 'text-green-600 hover:bg-green-50',
+      className:
+        admin.status === STATUS.ACTIVE
+          ? "text-orange-600 hover:bg-orange-50"
+          : "text-green-600 hover:bg-green-50",
     },
     {
-      label: 'Delete',
+      label: "Delete",
       icon: <Trash2 className="w-4 h-4" />,
       onClick: () => handleDelete(admin.id),
-      className: 'text-red-600 hover:bg-red-50',
+      className: "text-red-600 hover:bg-red-50",
     },
   ];
 
@@ -95,22 +102,22 @@ const AdminTable = ({ admins, onDataChange }) => {
         <table className="w-full">
           <thead className="bg-gray-50 border-b border-gray-200">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Admin
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Phone number
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Designation & role
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Onboarding date
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3"></th>
+              <th className="px-4 py-2"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -136,13 +143,15 @@ const AdminTable = ({ admins, onDataChange }) => {
                     </div>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="px-4 py-3 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
                     {formatPhoneNumber(admin.phoneNumber)}
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{admin.designation}</div>
+                  <div className="text-sm text-gray-900">
+                    {admin.designation}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
@@ -151,7 +160,7 @@ const AdminTable = ({ admins, onDataChange }) => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Badge status={admin.status}>
-                    {admin.status === 'active' ? 'Active' : 'Deactivated'}
+                    {admin.status === "active" ? "Active" : "Deactivated"}
                   </Badge>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right">

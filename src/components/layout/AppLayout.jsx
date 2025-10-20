@@ -13,9 +13,9 @@ const AppLayout = () => {
         {/* Header */}
         <Header />
 
-        {/* Page Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="p-6">
+        {/* Page Content with padding */}
+        <main className="flex-1 overflow-y-auto p-7">
+          <div className="max-w-[1400px] mx-auto">
             <Outlet />
           </div>
         </main>

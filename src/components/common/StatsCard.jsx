@@ -4,10 +4,10 @@ import Card from '../ui/Card';
 
 const StatsCard = ({ title, value, className }) => {
   return (
-    <Card className={cn('hover:shadow-md transition-shadow', className)}>
-      <div className="space-y-2">
-        <p className="text-sm text-gray-600">{title}</p>
-        <p className="text-3xl font-bold text-gray-900">{value}</p>
+    <Card className={cn('hover:shadow-md transition-shadow', className)} padding={false}>
+      <div className="p-4 space-y-1">
+        <p className="text-xs text-gray-600">{title}</p>
+        <p className="text-2xl font-bold text-gray-900">{value}</p>
       </div>
     </Card>
   );

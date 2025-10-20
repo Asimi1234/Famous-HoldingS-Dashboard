@@ -4,7 +4,7 @@ import { ChevronDown, ChevronRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { NAV_ITEMS } from '../../utils/constants';
 import SidebarItem from './SidebarItem';
-import Logo from '../../../public/assets/images/logo_big.png';
+import Logo from '/assets/images/logo_big.png';
 
 const Sidebar = () => {
   const location = useLocation();

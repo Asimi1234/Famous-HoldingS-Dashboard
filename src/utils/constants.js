@@ -48,46 +48,67 @@ export const STATUS_COLORS = {
   },
 };
 
-// Navigation items
+// Navigation items (using custom image icons)
 export const NAV_ITEMS = {
   BUSINESS: [
-    { id: 'customers', label: 'Customers', icon: 'Users', path: '/customers' },
-    { id: 'loans', label: 'Loans', icon: 'DollarSign', path: '/loans', badge: 2 },
-    { 
-      id: 'transactions', 
-      label: 'Transactions', 
-      icon: 'ArrowLeftRight', 
+    {
+      id: 'customers',
+      label: 'Customers',
+      icon: '/assets/images/icon/customer_icon.svg',
+      path: '/customers',
+    },
+    {
+      id: 'loans',
+      label: 'Loans',
+      icon: '/assets/images/icon/loan_icon.svg',
+      path: '/loans',
+      children: [
+        { id: 'agent', /*label: 'Agent', icon: '/assets/images/icon/agent_icon.svg', path: '/transactions/agent'*/ },
+        { id: 'supervisor',/*label: 'Agent', icon: '/assets/images/icon/agent_icon.svg', path: '/transactions/agent'*/ },
+        { id: 'accountant',/*label: 'Agent', icon: '/assets/images/icon/agent_icon.svg', path: '/transactions/agent'*/},
+      ],
+      badge: 2,
+    },
+    {
+      id: 'transactions',
+      label: 'Transactions',
+      icon: '/assets/images/icon/transactions_icon.svg',
       path: '/transactions',
       children: [
-        { id: 'agent', label: 'Agent', path: '/transactions/agent' },
-        { id: 'supervisor', label: 'Supervisor', path: '/transactions/supervisor' },
-        { id: 'accountant', label: 'Accountant', path: '/transactions/accountant' },
-      ]
+        { id: 'agent', label: 'Agent', icon: '/assets/images/icon/agent_icon.svg', path: '/transactions/agent' },
+        { id: 'supervisor', label: 'Supervisor', icon: '/assets/images/icon/supervisor_icon.svg', path: '/transactions/supervisor' },
+        { id: 'accountant', label: 'Accountant', icon: '/assets/images/icon/accountant_icon.svg', path: '/transactions/accountant' },
+      ],
     },
   ],
   MANAGEMENT: [
     {
       id: 'employee',
       label: 'Employee',
-      icon: 'Users',
+      icon: '/assets/images/icon/employee_icon.svg',
       path: '/employees',
       children: [
-        { id: 'agents', label: 'Agents', path: '/employees/agents' },
-        { id: 'admin', label: 'Admin', path: '/employees/admin' },
-      ]
+        { id: 'agents', label: 'Agents',icon: '/assets/images/icon/agent_icon.svg',  path: '/employees/agents' },
+        { id: 'admin', label: 'Admin', icon: '/assets/images/icon/admin_icon.svg', path: '/employees/admin' },
+      ],
     },
     {
       id: 'activity-control',
       label: 'Activity control',
-      icon: 'Activity',
+      icon: '/assets/images/icon/activity_control_icon.svg',
       path: '/activity',
       children: [
-        { id: 'roles', label: 'Roles and permissions', path: '/activity/roles' },
-        { id: 'approval', label: 'Approval workflow', path: '/activity/approval' },
-      ]
+        { id: 'roles', label: 'Roles and permissions', icon: '/assets/images/icon/roles_icon.svg', path: '/activity/roles' },
+        { id: 'approval', label: 'Approval workflow', icon: '/assets/images/icon/approval_icon.svg', path: '/activity/approval' },
+      ],
     },
   ],
   SETTINGS: [
-    { id: 'configurations', label: 'Configurations', icon: 'Settings', path: '/configurations' },
+    {
+      id: 'configurations',
+      label: 'Configurations',
+      icon: '/assets/images/icon/configuration_icon.svg',
+      path: '/configurations',
+    },
   ],
 };

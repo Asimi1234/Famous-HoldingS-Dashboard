@@ -13,7 +13,7 @@ const Header = () => {
       {/* Right side - Actions */}
       <div className="flex items-center gap-4">
         {/* Switch Portal Button */}
-        <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 border border-[#1A8AF6] rounded-lg text-sm text-[#1A8AF6] font-medium hover:bg-gray-50 transition-colors">
           <ArrowRightLeft className="w-4 h-4" />
           <span>Switch portal</span>
         </button>
